@@ -19,16 +19,16 @@ class DeepSymbolicRegressor(DeepSymbolicOptimizer,
             }
         DeepSymbolicOptimizer.__init__(self, config)
 
-    def fit(self, X, y,): #logdir=None):
+    ## WASSIM MODIF
+    def fit(self, X, y, logdir=None):
 
         # Update the Task
         config = deepcopy(self.config)
         config["task"]["dataset"] = (X, y)
 
-
-        # Turn off file saving
-        #if logdir==None:
-        config["experiment"]["logdir"] = None
+        ## WASSIM MODIF
+        # Turn off file saving by default
+        config["experiment"]["logdir"] = logdir
 
         self.set_config(config)
 
