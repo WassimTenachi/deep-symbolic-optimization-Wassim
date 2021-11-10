@@ -131,11 +131,11 @@ protected_ops = [
     Token(protected_n2, "n2", arity=1, complexity=2),
     Token(protected_n3, "n3", arity=1, complexity=3),
     Token(protected_n4, "n4", arity=1, complexity=3),
-    Token(protected_sigmoid, "sigmoid", arity=1, complexity=4)
+    Token(protected_sigmoid, "sigmoid", arity=1, complexity=4),
 
     ## BEGIN WASSIM MODIF
-    Token(one, "one", arity=0, complexity=1)
-    Token(zero, "zero", arity=0, complexity=1)
+    Token(one, "one", arity=0, complexity=1),
+    Token(zero, "zero", arity=0, complexity=1),
     ## END WASSIM MODIF
 ]
 
