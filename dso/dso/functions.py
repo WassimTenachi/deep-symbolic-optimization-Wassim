@@ -31,7 +31,14 @@ def harmonic(x1):
         return np.array([sum(Fraction(1, d) for d in range(1, int(val)+1)) for val in x1], dtype=np.float32)
     else:
         return GAMMA + np.log(x1) + 0.5/x1 - 1./(12*x1**2) + 1./(120*x1**4)
+    
+## BEGIN WASSIM MODIF
+def one():
+    return 1
 
+def zero():
+    return 0
+## END WASSIM MODIF
 
 # Annotate unprotected ops
 unprotected_ops = [
@@ -62,7 +69,12 @@ unprotected_ops = [
     Token(n3, "n3", arity=1, complexity=3),
     Token(n4, "n4", arity=1, complexity=3),
     Token(sigmoid, "sigmoid", arity=1, complexity=4),
-    Token(harmonic, "harmonic", arity=1, complexity=4)
+    Token(harmonic, "harmonic", arity=1, complexity=4),
+
+    ## BEGIN WASSIM MODIF
+    Token(one, "one", arity=0, complexity=1),
+    Token(zero, "zero", arity=0, complexity=1),
+    ## END WASSIM MODIF
 ]
 
 
@@ -108,13 +120,7 @@ def protected_n4(x1):
 def protected_sigmoid(x1):
     return 1 / (1 + protected_expneg(x1))
 
-## BEGIN WASSIM MODIF
-def one():
-    return 1
 
-def zero():
-    return 0
-## END WASSIM MODIF
 
 # Annotate protected ops
 protected_ops = [
