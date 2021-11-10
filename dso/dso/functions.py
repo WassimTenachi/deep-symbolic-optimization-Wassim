@@ -31,13 +31,13 @@ def harmonic(x1):
         return np.array([sum(Fraction(1, d) for d in range(1, int(val)+1)) for val in x1], dtype=np.float32)
     else:
         return GAMMA + np.log(x1) + 0.5/x1 - 1./(12*x1**2) + 1./(120*x1**4)
-    
+
 ## BEGIN WASSIM MODIF
 def one():
-    return 1
+    return np.array(1)
 
 def zero():
-    return 0
+    return np.array(0)
 ## END WASSIM MODIF
 
 # Annotate unprotected ops
