@@ -108,13 +108,20 @@ def protected_n4(x1):
 def protected_sigmoid(x1):
     return 1 / (1 + protected_expneg(x1))
 
+## BEGIN WASSIM MODIF
+def one():
+    return 1
+
+def zero():
+    return 0
+## END WASSIM MODIF
+
 # Annotate protected ops
 protected_ops = [
     # Protected binary operators
     Token(protected_div, "div", arity=2, complexity=2),
 
     # Protected unary operators
-
     Token(protected_exp, "exp", arity=1, complexity=4),
     Token(protected_log, "log", arity=1, complexity=4),
     Token(protected_log, "logabs", arity=1, complexity=4), # Protected logabs is support, but redundant
@@ -125,6 +132,11 @@ protected_ops = [
     Token(protected_n3, "n3", arity=1, complexity=3),
     Token(protected_n4, "n4", arity=1, complexity=3),
     Token(protected_sigmoid, "sigmoid", arity=1, complexity=4)
+
+    ## BEGIN WASSIM MODIF
+    Token(one, "one", arity=0, complexity=1)
+    Token(zero, "zero", arity=0, complexity=1)
+    ## END WASSIM MODIF
 ]
 
 # Add unprotected ops to function map
