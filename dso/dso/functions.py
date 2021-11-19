@@ -32,13 +32,6 @@ def harmonic(x1):
     else:
         return GAMMA + np.log(x1) + 0.5/x1 - 1./(12*x1**2) + 1./(120*x1**4)
 
-## BEGIN WASSIM MODIF
-def one():
-    return np.array(1)
-
-def zero():
-    return np.array(0)
-## END WASSIM MODIF
 
 # Annotate unprotected ops
 unprotected_ops = [
@@ -71,10 +64,6 @@ unprotected_ops = [
     Token(sigmoid, "sigmoid", arity=1, complexity=4),
     Token(harmonic, "harmonic", arity=1, complexity=4),
 
-    ## BEGIN WASSIM MODIF
-    Token(one, "one", arity=0, complexity=1),
-    Token(zero, "zero", arity=0, complexity=1),
-    ## END WASSIM MODIF
 ]
 
 
@@ -139,10 +128,6 @@ protected_ops = [
     Token(protected_n4, "n4", arity=1, complexity=3),
     Token(protected_sigmoid, "sigmoid", arity=1, complexity=4),
 
-    ## BEGIN WASSIM MODIF
-    Token(one, "one", arity=0, complexity=1),
-    Token(zero, "zero", arity=0, complexity=1),
-    ## END WASSIM MODIF
 ]
 
 # Add unprotected ops to function map
